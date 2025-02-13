@@ -1,0 +1,162 @@
+
+html {
+  font-family: "Italianno", serif;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 100%;
+
+}
+*, *::before, *::after {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+canvas {
+  
+  top: calc(100vh * 2);
+  left: 0;
+
+}
+body {
+  width: 100vw;
+  height: fit-content;
+  position: relative;
+  overflow-x:hidden;
+  padding: top 100px;
+  background-color: #FFBDBD;
+  /* cursor: none; */
+}
+
+
+
+.cursor-follower{
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  width: 100px;
+  height: 100px;
+  border-radius: 100px;
+  background-color: transparent;
+  border: 1px solid white;
+  mix-blend-mode: difference;
+  z-index:200;
+  transform: translate(-50%, -50%);
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.cursor-follower > p {
+  
+  color: white;
+  margin: auto;
+  text-align: center;
+  user-select: none;
+  mix-blend-mode: exclusion;
+  font-family: 'Times New Roman', Times, serif;
+  /* cursor: none; */
+
+}
+
+.first-content{
+  position: relative;
+
+  z-index: 100;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  height: 100vh;
+
+
+}
+
+.first-content > h1 {
+  font-family: "Birthstone", serif;
+  color: white;
+  font-size: 128px;
+  line-height: 128px;
+  text-align: center;
+  margin-bottom: 56px;
+}
+
+h2{
+  text-align: center;
+  font-family: "Birthstone", serif;
+  color: white;
+  font-size: 96px;
+  line-height: 96px;
+  text-align: center;
+  margin-bottom: 56px;
+}
+
+.context{
+  color: #616161;
+  
+  text-align: center;
+  font-size: 32px;
+  line-height: 32px;
+  width: 400.55px;
+  text-align: center;
+  line-height: 48px;
+}
+
+.name{
+  font-size: 24px;
+  line-height: 24px;
+}
+.message {
+  margin-bottom: 56px;
+}
+.desc {
+  font-size: 8px;
+  font-family: Arial, Helvetica, sans-serif;
+  line-height: 8px;
+  margin-bottom: 128px;
+}
+
+.flower-context { 
+  background-color: transparent;
+  padding: 0px 128px;
+  padding-bottom: 30px;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+
+
+@media (max-width:1024px) {
+  .cursor-follower {
+    display: none;
+  }
+}
+
+@media (max-width:1024px) {
+  .flower-context {
+    padding: 0px 32px;
+    padding-bottom: 30px;
+    
+  }
+
+  .flower-context > h1{
+    font-size: 24px;
+  }
+
+  .text-accept{
+    font-size: 64px;
+    line-height: 64px;
+  }
+  .nescel {
+    font-size: 64px !important;
+    line-height: 64px;
+  }
+  .message {
+    font-size: 24px !important;
+    padding: 0px 50px !important;
+    line-height: 24px;
+  }
+}
+
