@@ -99,7 +99,7 @@ h2{
   text-align: center;
   font-size: 32px;
   line-height: 32px;
-  width: 400.55px;
+  width: 600.55px;
   text-align: center;
   line-height: 48px;
 }
@@ -110,6 +110,7 @@ h2{
 }
 .message {
   margin-bottom: 56px;
+ 
 }
 .desc {
   font-size: 8px;

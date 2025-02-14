@@ -80,7 +80,7 @@ window.addEventListener('mousemove', (event) => {
 
   if (scrollTop + windowHeight >= documentHeight) {
    
-    cursorText.textContent = "Drag the flower"
+    cursorText.textContent = "Drag it"
   }
   else {
     cursorText.textContent= "Scroll Down"
