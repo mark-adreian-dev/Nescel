@@ -38,7 +38,7 @@ let model;
 const flower = new GLTFLoader();
 flower.load(
 	// resource URL
-	'/mesh/Boquet/scene.gltf',
+	'/mesh/Boquet/scene.glb',
 	// called when the resource is loaded
 	function ( gltf ) {
     model = gltf
