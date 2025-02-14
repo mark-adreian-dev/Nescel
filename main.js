@@ -53,7 +53,19 @@ flower.load(
 
 	},
 	// called while loading is progressing
-	xhr => {console.log( ( xhr.loaded / xhr.total * 100 ) + '% loaded' );},
+	xhr => {
+
+    const loading = document.querySelector('.progress-bar');
+
+    const percentage = Math.trunc( xhr.loaded / xhr.total * 100 );
+
+    loading.textContent = `Unwrapping my gift ${percentage}%`
+
+    if(percentage >= 100) {
+      loading.style.display = "none";
+    }
+  
+  },
 	// called when loading has errors
 	error => {console.log( error );}
 );

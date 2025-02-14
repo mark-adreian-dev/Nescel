@@ -135,6 +135,29 @@ h2{
 }
 
 
+.progress-container {
+  position: absolute;
+  z-index: 500;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  font-family: "Birthstone", serif;
+  font-weight: 400;
+  font-style: normal;
+  color:#616161;
+
+  font-size: 64px;
+
+}
+.progress-bar {
+ 
+
+
+}
+
 @media (max-width:1024px) {
   .cursor-follower {
     display: none;
