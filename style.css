@@ -13,7 +13,7 @@ html {
 }
 
 canvas {
-  
+  width: 100vw;
   top: calc(100vh * 2);
   left: 0;
 
@@ -25,7 +25,7 @@ body {
   overflow-x:hidden;
   padding: top 100px;
   background-color: #FFBDBD;
-  /* cursor: none; */
+  cursor: none;
 }
 
 
@@ -127,10 +127,22 @@ h2{
   justify-content: space-between;
 }
 
+.flower-context {
+  font-family: "Birthstone", serif;
+  font-weight: 400;
+  font-style: normal;
+  color:#616161;
+}
+
 
 @media (max-width:1024px) {
   .cursor-follower {
     display: none;
+   
+  }
+
+  body{
+    cursor: pointer;
   }
 }
 

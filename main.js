@@ -35,34 +35,20 @@ const ambientLight = new THREE.AmbientLight(0xFFC0CB, 5);
 // scene.background = new THREE.Color(0xffffff)
 let model;
 
-const skull = new GLTFLoader();
-skull.load(
+const flower = new GLTFLoader();
+flower.load(
 	// resource URL
-	'./mesh/boquet/scene.gltf',
+	'/mesh/Boquet/scene.gltf',
 	// called when the resource is loaded
 	function ( gltf ) {
     model = gltf
 
-    gltf.scene.scale.x = 4
-    gltf.scene.scale.z = 4
-    gltf.scene.scale.y = 4
-    gltf.scene.position.y = -1
+    gltf.scene.scale.x = 5
+    gltf.scene.scale.z = 5
+    gltf.scene.scale.y = 5
+    gltf.scene.position.y = -1.3
   
     scene.add( gltf.scene );
-  
-  
-  
-    // const setCubeFacing = (distanceX, distanceY) => {
-
-    //   const sensitivity = 0.00009
-    //   const deltaX = distanceX * sensitivity
-    //   const deltaY = distanceY * sensitivity
-          
-    //   gltf.scene.rotation.y = THREE.MathUtils.radToDeg(deltaX)
-    //   gltf.scene.rotation.x = -(THREE.MathUtils.radToDeg(deltaY))
-    
-    // }
-    
     
 
 	},
@@ -103,6 +89,9 @@ document.addEventListener("scroll", (event) => {
   targetY = event.PageY;
   
 });
+
+
+
 
 
 
@@ -176,10 +165,44 @@ document.addEventListener("mouseup", () => {
 
 
 
+
+document.addEventListener("touchstart", (event) => {
+  isDragging = true;
+  lastMousePos.set(event.clientX, event.clientY);
+  velocity.set(0, 0); // Reset velocity on click
+});
+
+document.addEventListener("touchmove", (event) => {
+  if (isDragging && model) {
+    const deltaX = event.clientX - lastMousePos.x;
+    const deltaY = event.clientY - lastMousePos.y;
+
+    velocity.set(deltaX * 0.002, deltaY * 0.002); // Adjust sensitivity
+    lastMousePos.set(event.clientX, event.clientY);
+
+    // 🔄 Rotate object WHILE dragging
+    model.scene.rotation.y += velocity.x;
+    model.scene.rotation.x += velocity.y;
+  }
+});
+
+document.addEventListener("touchend", () => {
+  isDragging = false;
+});
+
+
+
+
+
+
+
 window.addEventListener('resize', () => {
-  camera.aspect = innerWidth / window.innerHeight
-  renderer.setSize(window.innerWidth, window.innerHeight)
-  camera.updateProjectionMatrix()
+  camera.aspect = window.innerWidth / window.innerHeight;
+    camera.updateProjectionMatrix();
+
+    // Update renderer size
+    renderer.setSize(window.innerWidth, window.innerHeight);
+    renderer.setPixelRatio(window.devicePixelRatio);
 })
 // cubeMesh.rotation.x = THREE.MathUtils.radToDeg(0.001)
 
