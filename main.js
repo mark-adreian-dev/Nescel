@@ -76,8 +76,7 @@ flower.load('boquet/scene.glb', gltf => {
   
 
 
-    const percentage = Math.trunc( xhr.loaded / xhr.total * 100 );
-  
+    const percentage = Math.trunc((xhr.loaded / xhr.total) * 100 );
     loading.textContent = `Loading ${percentage}%`
 
     let drawLengthMobile = pathLengthMobile * (xhr.loaded / xhr.total);
