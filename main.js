@@ -76,17 +76,19 @@ flower.load('boquet/scene.glb', gltf => {
 	xhr => {
     const loading = document.querySelector('#loading-indicator')
     const percentage = Math.trunc((xhr.loaded / xhr.total) * 100 );
-    if(percentage <= 100) {
-      loading.textContent = `Loading ${percentage}%`
-    }
+   
 
 
     let drawLengthMobile = pathLengthMobile * (xhr.loaded / xhr.total);
     let drawLengthDesktop = pathLengthDesktop * (xhr.loaded / xhr.total);
 
-    svgLoadMobile.style.strokeDashoffset = pathLengthMobile - drawLengthMobile;
-    svgLoadDesktop.style.strokeDashoffset = pathLengthDesktop - drawLengthDesktop;
-    console.log(pathLengthMobile - drawLengthMobile, pathLengthDesktop - drawLengthDesktop)
+    if(percentage <= 100) {
+      loading.textContent = `Loading ${percentage}%`
+      svgLoadMobile.style.strokeDashoffset = pathLengthMobile - drawLengthMobile;
+      svgLoadDesktop.style.strokeDashoffset = pathLengthDesktop - drawLengthDesktop;
+    }
+    
+
   
   },
 	// called when loading has errors
