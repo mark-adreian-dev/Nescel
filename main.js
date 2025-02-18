@@ -86,7 +86,7 @@ flower.load('boquet/scene.glb', gltf => {
 
     svgLoadMobile.style.strokeDashoffset = pathLengthMobile - drawLengthMobile;
     svgLoadDesktop.style.strokeDashoffset = pathLengthDesktop - drawLengthDesktop;
-  
+    console.log(pathLengthMobile - drawLengthMobile, pathLengthDesktop - drawLengthDesktop)
 
   
   },
