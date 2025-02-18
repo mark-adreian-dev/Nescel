@@ -65,17 +65,16 @@ flower.load('boquet/scene.glb', gltf => {
     gltf.scene.position.y = -0.2;
     gltf.scene.position.x = -0.01;
     scene.add( gltf.scene );
+
+    const content = document.querySelector('#content-section')
+    const loadingScreen = document.querySelector('#loading-screen')
+    loadingScreen.style.height = "0px";
+    content.style.display = "block"
     
 	},
 	// called while loading is progressing
 	xhr => {
     const loading = document.querySelector('#loading-indicator')
-    const content = document.querySelector('#content-section')
-    const loadingScreen = document.querySelector('#loading-screen')
-
-  
-
-
     const percentage = Math.trunc((xhr.loaded / xhr.total) * 100 );
     if(percentage <= 100) {
       loading.textContent = `Loading ${percentage}%`
@@ -89,13 +88,6 @@ flower.load('boquet/scene.glb', gltf => {
     svgLoadDesktop.style.strokeDashoffset = pathLengthDesktop - drawLengthDesktop;
   
 
-    if(percentage >= 100) {
-      setTimeout(() => {
-        loadingScreen.style.height = "0px";
-        content.style.display = "block"
-      }, 2000)
-    }
- 
   
   },
 	// called when loading has errors
