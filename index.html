@@ -4,42 +4,82 @@
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/vite.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Birthstone&family=Italianno&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Birthstone&family=Poppins:ital@0;1&display=swap" rel="stylesheet">
+
+
     <link rel="stylesheet" href="style.css">
     <title>Nescel</title>
    
   </head>
-  <body>
+  <body class="bg-(--pink) overflow-x-hidden cursor-none">
+    <div id="cursor-follower" class="hidden w-[1rem] h-[1rem] bg-(--red) absolute z-[300] rounded-full desktop:block"></div>
     
-   
-    <div class="cursor-follower">
-      <p><i class="text-cursor">Drag the flower</i></p>
-    </div>
-    <div class="first-content">
-      <h1 class="nescel">Nescel</h1>
-      <div class="context">
-        <p class="message">Before moko sungitan, I just want you to know that I’m very thankful that you give me this another chance to prove myself alam ko OA talga ko minsan I'm sorry this is suppose to be part nung bulaklak na dala ko kanina kaso ayun palpak na naman ako I hope we could talk about kanina nag woworry lang ako kung may nagawa ba kong mali.</p>
-        <p class="name">Mark Adreian Ramos</p>
-        <p class="desc">CORNY MONG ADMIRER</p>
-      </div>
-     
-    </div>
-    <h2 class="text-accept">Please accept my virtual gift</h2>
-    <div class="flower">
-      <div class="progress-container">
-        <div class="progress-bar" id="progressBar">0%</div>
-      </div>
-      <canvas id="bg"></canvas>
-      <div class="flower-context">
-        <h1>Happy Valentines</h1>
-        <h1>February 14, 2025</h1>
-      </div>
-      
-    </div>
-   
-   
+    <section id="loading-screen" class="transition-[height] duration-[1000ms] ease-in-out leading-[100%] w-screen h-screen bg-white absolute top-0 left-0 z-[200] flex flex-col justify-center items-center overflow-hidden">
+      <h1 class="text-(--pink) text-[3.5rem] font-script leading-[100%] tablet:text-[8rem] large:text-[11rem]">Welcome Nescel</h1>
+      <p class="font-sans text-[0.75rem] text-(--pink) mb-[11.8125rem] tablet:text-[1.5rem]">I have something to say</p>
+      <p class="font-sans text-[0.75rem] text-(--pink) mb-[1rem] tablet:text-[1.5rem]" id="loading-indicator">Loading 0%</p>
+       <!-- desktop loading bar -->
+      <svg class="hidden tablet:block" width="662" height="2" viewBox="0 0 662 2" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path id="load-desktop-svg"  d="M0 1L662 1.00006" stroke="#FF9F9F"/>
+      </svg>
+      <!-- mobile loading bar -->
+      <svg class="tablet:hidden" width="382" height="2" viewBox="0 0 382 2" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path class="load-mobile-svg" d="M0 1H382" stroke="#FF9F9F"/>
+      </svg>
+        
+        
+    </section>
+    <section id="content-section" class="hidden">
+      <header class="text-white font-sans flex justify-between items-start pt-[2.375rem] px-[1.25rem] italic tablet:px-[3.75rem] desktop:pt-[4.25rem] desktop:px-[4rem]">
+        <p class="hidden tracking-tight text-[0.5rem] tablet:text-[1rem] desktop:block">I hope that you find your peace</p>
+        <svg class="hidden desktop:block desktop:mx-[2rem] large:mx-[4rem]" width="711" height="20" viewBox="0 0 711 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path class="hidden desktop:block translate-y-[0.1875rem]" opacity="1" d="M710.707 8.70711C711.098 8.31658 711.098 7.68342 710.707 7.29289L704.343 0.928932C703.953 0.538408 703.319 0.538408 702.929 0.928932C702.538 1.31946 702.538 1.95262 702.929 2.34315L708.586 8L702.929 13.6569C702.538 14.0474 702.538 14.6805 702.929 15.0711C703.319 15.4616 703.953 15.4616 704.343 15.0711L710.707 8.70711ZM0 9H710V7H0V9Z" fill="white"/>
+        </svg>  
+        <div class="flex justify-between items-start w-full desktop:w-[709px]">
+          <p class="w-[4.75rem] text-[0.5rem] tablet:w-[9.4375rem] tablet:text-[1rem] desktop:w-[9.4375rem] ">Wishing that you’ll see everything</p>
+          <svg class="hidden desktop:block desktop:mx-[2rem] large:mx-[4rem]" width="250" height="20" viewBox="0 0 250 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path class="hidden desktop:block translate-y-[0.1875rem]" d="M249.707 8.70708C250.098 8.31656 250.098 7.6834 249.707 7.29287L243.343 0.928911C242.953 0.538387 242.319 0.538387 241.929 0.928911C241.538 1.31944 241.538 1.9526 241.929 2.34312L247.586 7.99998L241.929 13.6568C241.538 14.0474 241.538 14.6805 241.929 15.071C242.319 15.4616 242.953 15.4616 243.343 15.071L249.707 8.70708ZM8.74228e-08 9L249 8.99998L249 6.99998L-8.74228e-08 7L8.74228e-08 9Z" fill="white"/>
+          </svg>
+          <p class="text-[0.5rem] tablet:text-[1rem]">How long may it takes</p>
+        </div>
+        
+      </header>
+      <main class="mb-[10rem] px-[4rem] w-screen h-screen relative desktop:mb-0 desktop:static desktop:h-[calc(100vh-140px)] large:h-[calc(100vh-116px)]">
+        <div class=" flex items-start justify-center absolute top-0 left-0 right-0 bottom-0 z-10 desktop:justify-between desktop:items-center">
+          <h1 class="leading-[100%] font-script text-white text-[12rem] tablet:text-[28rem] desktop:text-[18rem] desktop:translate-y-[-70px] large:text-[24rem]">Nescel</h1>
+          <h1 class="leading-[100%] hidden desktop:block text-[18rem] font-script text-white translate-x-[-40px] desktop:translate-y-[-70px] large:text-[24rem]">Nescel</h1>
+        </div>
+       
+        <canvas id="canvas" class="absolute top-0 left-0 right-0 bottom-0 tablet:top-30 desktop:top-0 pointer-events-auto" style="width:100%;height:100%;touch-action:auto;"></canvas>
+       
+      </main>
+       
+      <footer class="realtive z-50 w-screen h-fit pb-[4.25rem] px-[2rem] flex tablet:px-[10rem] desktop:px-[3rem] desktop:justify-between desktop:absolute desktop:bottom-0 desktop:left-0">
+        <section class="p-[2.375rem] h-fit desktop:w-[36.3125rem] desktop:h-[18.1875rem] border-2 border-white border-solid rounded-[8px]">
+          <p class="text-white font-sans text-[1rem] italic mb-[2.875rem]">Hello Nescel if ever you look here again I just want you to know that I’m still not dropping the idea of pursuing you, by the time you read this maybe we are not in touch of each other but I will always find my way to you again I wish. </p>
+          <p class="text-white text-[0.625rem] italic w-[165px] mb-[2.1875rem]">I might change things here in the box at <span class="text-(--red)">SUNDAYS @ 8:00pm</span> </p>
+          <p class="text-white w-full text-end">- englisherong lokal</p>
+        </section>
+        <!-- long arrow -->
+        <svg class="hidden large:block large:mr-[100px]" width="1023" height="296" viewBox="0 0 1023 296" fill="none" preserveAspectRatio="xMidYMax meet">
+          <path class="translate-y-[-100px]" d="M825.5 291L825.634 290.009L825.5 291ZM0.59932 259.566C0.359362 260.063 0.568085 260.661 1.06552 260.901L9.17164 264.811C9.66907 265.051 10.2668 264.842 10.5068 264.345C10.7468 263.847 10.538 263.25 10.0406 263.01L2.83516 259.534L6.31103 252.328C6.55099 251.831 6.34226 251.233 5.84483 250.993C5.3474 250.753 4.74963 250.962 4.50967 251.459L0.59932 259.566ZM977.105 0.946677C990.951 28.6804 1004.28 62.8093 1012.5 97.855C1020.72 132.911 1023.82 168.815 1017.28 200.133C1010.75 231.419 994.606 258.109 964.311 274.88C933.977 291.672 889.322 298.594 825.634 290.009L825.366 291.991C889.278 300.606 934.423 293.711 965.28 276.63C996.176 259.526 1012.61 232.285 1019.24 200.542C1025.86 168.831 1022.71 132.608 1014.45 97.3982C1006.18 62.1782 992.799 27.9029 978.895 0.053323L977.105 0.946677ZM825.634 290.009C666.184 268.516 512.741 242.381 372.895 230.816C233.043 219.25 106.623 222.235 1.17035 259.056L1.82965 260.944C106.877 224.265 232.957 221.25 372.73 232.809C512.509 244.369 665.816 270.484 825.366 291.991L825.634 290.009Z" fill="white"/>
+        </svg>
+  
+         <!-- short arrow -->
+        <svg class="hidden desktop:block large:hidden mr-[30px]" width="670" height="297" viewBox="0 0 670 297" fill="none">
+          <path class="translate-y-[-100px]" d="M540.474 292.287L540.676 291.307L540.474 292.287ZM0.0430013 260.913C-0.117212 261.441 0.181372 262 0.709908 262.16L9.3229 264.771C9.85143 264.931 10.4098 264.632 10.57 264.104C10.7302 263.575 10.4316 263.017 9.90308 262.857L2.24709 260.536L4.56783 252.88C4.72804 252.351 4.42946 251.793 3.90092 251.633C3.37239 251.473 2.81404 251.771 2.65383 252.3L0.0430013 260.913ZM639.365 1.30993C657.516 56.9922 674.272 138.266 665.685 201.244C661.392 232.729 650.786 259.482 631.024 276.237C611.299 292.961 582.25 299.89 540.676 291.307L540.272 293.266C582.238 301.93 611.981 295.005 632.317 277.763C652.617 260.552 663.342 233.228 667.666 201.514C676.314 138.092 659.451 56.4756 641.266 0.690074L639.365 1.30993ZM540.676 291.307C436.326 269.765 335.81 243.547 244.224 231.947C152.62 220.344 69.711 223.324 0.528426 260.321L1.47157 262.085C70.1036 225.382 152.507 222.346 243.973 233.931C335.458 245.519 435.772 271.693 540.272 293.266L540.676 291.307Z" fill="white"/>
+        </svg>
+          
+          
+      </footer> 
+    </section>
+    
+  
+    <script type="module" src="/js/cursor/cursor.js"></script>
     <script type="module" src="/main.js"></script>
+  
   </body>
 </html>
