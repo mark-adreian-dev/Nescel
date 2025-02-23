@@ -76,9 +76,9 @@ flower.load('boquet/scene.glb', gltf => {
 	xhr => {
     const loading = document.querySelector('#loading-indicator')
     const percentage = Math.trunc((xhr.loaded / xhr.total) * 100 );
-   
-
-
+    
+    console.log("Loading")
+ 
     let drawLengthMobile = pathLengthMobile * (xhr.loaded / xhr.total);
     let drawLengthDesktop = pathLengthDesktop * (xhr.loaded / xhr.total);
 
